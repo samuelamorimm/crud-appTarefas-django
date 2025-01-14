@@ -1,0 +1,42 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+    <div class="container">
+        <h1>Adicione uma tarefa</h1>
+
+        <form action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            {% for fields in form %}
+                <div>
+                    {{fields.label}}
+                    {{fields}}
+                </div>
+            {% endfor %}
+            <button type="submit" class="enviar">Enviar</button>
+        </form>
+
+        <h1>Minhas Tarefas</h1>
+
+        <ul>
+            {% for tarefa in tarefas %}
+            <li>
+                {{tarefa.title}}
+                <a href="{% url 'deletar_tarefa' tarefa.id %}">
+                    <button>X</button>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
