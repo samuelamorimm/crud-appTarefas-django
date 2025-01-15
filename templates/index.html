@@ -35,6 +35,14 @@
                     <button>X</button>
                 </a>
             </li>
+            {% if tarefa.completed == True %}
+            <li style="color: rgb(105, 221, 105); text-decoration: line-through;">
+                {{tarefa.title}}
+                <a href="{% url 'deletar_tarefa' tarefa.id %}">
+                    <button>X</button>
+                </a>
+            </li>
+            {% endif %}
             {% endfor %}
         </ul>
     </div>

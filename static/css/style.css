@@ -72,6 +72,13 @@ form {
     padding: 10px;
 }
 
+form input {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 5px;
+    border: 1px solid rgb(9, 77, 77);
+}
+
 .enviar {
     display: flex;
     justify-content: center;
