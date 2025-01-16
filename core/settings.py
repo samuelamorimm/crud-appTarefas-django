@@ -120,8 +120,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Adiciona o diretório 'static' no seu diretório base
+    os.path.join(BASE_DIR, 'templates/static'),
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Default primary key field type
